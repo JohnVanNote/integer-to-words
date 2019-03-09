@@ -20,12 +20,12 @@ public class IntegerToWords {
    * @return The English equivalent.
    */
   public static String toWords(int number) {
-    int numberCopy = number;
+    int normalizedNumber = Math.abs(number);
     Map<Integer, Integer> splitNumber = new TreeMap<>();
 
-    for (int i=0; numberCopy != 0; i++) {
-      splitNumber.put(i, numberCopy % 1000);
-      numberCopy = numberCopy / 1000;
+    for (int i=0; normalizedNumber != 0; i++) {
+      splitNumber.put(i, normalizedNumber % 1000);
+      normalizedNumber = normalizedNumber / 1000;
     }
 
     Deque<String> deque = new ArrayDeque<>();
@@ -65,6 +65,8 @@ public class IntegerToWords {
       if (!"".equals(hundredsWord)) updateDeque(deque, "hundred");
       updateDeque(deque, hundredsWord);
     }
+
+    if (number < 0) updateDeque(deque, "negative");
 
     String dequeString = dequeToString(deque);
     return dequeString.isEmpty() ? "zero" : dequeString;

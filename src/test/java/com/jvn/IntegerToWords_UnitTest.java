@@ -72,8 +72,17 @@ public class IntegerToWords_UnitTest {
   }
 
   @Test(dataProvider = "numbas")
-  public void toWords_Numbers_Words(int n, String s) {
-    Assert.assertEquals(toWords(n), s);
+  public void toWords_NonNegativeNumbers_CreatesEquivalentWords(int nonNegativeNumber, String words) {
+    if (nonNegativeNumber < 0) Assert.fail("This test is meant for non-negative numbers");
+    Assert.assertEquals(toWords(nonNegativeNumber), words);
+  }
+
+  @Test(dataProvider = "numbas")
+  public void toWords_NonPositiveNumbers_CreatesEquivalentWords(int nonNegativeNumber, String words) {
+    int nonPositiveNumber = nonNegativeNumber * -1;
+    if (nonPositiveNumber > 0) Assert.fail("This test is meant for non-negative number inputs, they will be converted to non-positivie");
+    if (nonPositiveNumber == 0) Assert.assertEquals(toWords(nonPositiveNumber), words);
+    else Assert.assertEquals(toWords(nonPositiveNumber), "negative " + words);
   }
 
 }
