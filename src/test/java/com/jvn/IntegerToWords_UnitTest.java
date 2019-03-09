@@ -6,6 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * Unit tests for {@link IntegerToWords}.
+ */
 public class IntegerToWords_UnitTest {
 
   @DataProvider
