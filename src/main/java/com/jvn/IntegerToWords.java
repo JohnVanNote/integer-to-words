@@ -1,5 +1,6 @@
 package com.jvn;
 
+import java.math.BigInteger;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -12,26 +13,33 @@ import java.util.TreeMap;
  */
 public class IntegerToWords {
 
+  private static final BigInteger THOUSAND = BigInteger.valueOf(1000);
+  private static final BigInteger ZERO = BigInteger.ZERO;
+
   private IntegerToWords(){}
+
+  public static String toWords(int integer) {
+    return toWords(new BigInteger(Integer.toString(integer)));
+  }
 
   /**
    * Converts an integer to its English equivalent.
-   * @param number The integer.
+   * @param integer The integer.
    * @return The English equivalent.
    */
-  public static String toWords(int number) {
-    int normalizedNumber = Math.abs(number);
-    Map<Integer, Integer> splitNumber = new TreeMap<>();
+  public static String toWords(BigInteger integer) {
+    BigInteger absoluteInteger = integer.abs();
+    Map<Integer, BigInteger> splitNumber = new TreeMap<>();
 
-    for (int i=0; normalizedNumber != 0; i++) {
-      splitNumber.put(i, normalizedNumber % 1000);
-      normalizedNumber = normalizedNumber / 1000;
+    for (int i=0; !absoluteInteger.equals(ZERO); i++) {
+      splitNumber.put(i, absoluteInteger.mod(THOUSAND));
+      absoluteInteger = absoluteInteger.divide(THOUSAND);
     }
 
     Deque<String> deque = new ArrayDeque<>();
     int splitNumLength = splitNumber.size();
     for (int i=0; i<splitNumLength; i++) {
-      int digits = splitNumber.get(i);
+      int digits = splitNumber.get(i).intValue();
 
       // Lets get the place
       if (digits != 0) {
@@ -66,7 +74,7 @@ public class IntegerToWords {
       updateDeque(deque, hundredsWord);
     }
 
-    if (number < 0) updateDeque(deque, "negative");
+    if (integer.compareTo(ZERO) < 0) updateDeque(deque, "negative");
 
     String dequeString = dequeToString(deque);
     return dequeString.isEmpty() ? "zero" : dequeString;
