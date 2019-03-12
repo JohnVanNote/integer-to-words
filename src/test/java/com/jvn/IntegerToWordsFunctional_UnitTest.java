@@ -1,6 +1,6 @@
 package com.jvn;
 
-import static com.jvn.IntegerToWords.toWords;
+import static com.jvn.IntegerToWordsFunctional.toWords;
 
 import java.math.BigInteger;
 import org.testng.Assert;
@@ -8,9 +8,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
- * Unit tests for {@link IntegerToWords}.
+ * Unit tests for {@link IntegerToWordsFunctional}.
  */
-public class IntegerToWords_UnitTest {
+public class IntegerToWordsFunctional_UnitTest {
 
   @DataProvider
   public Object[][] numbas() {

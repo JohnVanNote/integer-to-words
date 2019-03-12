@@ -11,12 +11,12 @@ import java.util.TreeMap;
 /**
  * Converts integers to the English equivalent
  */
-public class IntegerToWords {
+public class IntegerToWordsFunctional {
 
   private static final BigInteger THOUSAND = BigInteger.valueOf(1000);
   private static final BigInteger ZERO = BigInteger.ZERO;
 
-  private IntegerToWords(){}
+  private IntegerToWordsFunctional(){}
 
   public static String toWords(int integer) {
     return toWords(new BigInteger(Integer.toString(integer)));
