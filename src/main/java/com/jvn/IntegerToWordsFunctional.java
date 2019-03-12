@@ -3,7 +3,6 @@ package com.jvn;
 import java.math.BigInteger;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,6 +17,11 @@ public class IntegerToWordsFunctional {
 
   private IntegerToWordsFunctional(){}
 
+  /**
+   * Converts an integer to its English equivalent.
+   * @param integer The integer.
+   * @return The English equivalent.
+   */
   public static String toWords(int integer) {
     return toWords(new BigInteger(Integer.toString(integer)));
   }
@@ -82,74 +86,30 @@ public class IntegerToWordsFunctional {
 
   /**
    * Converts words to string base.
-   * @param number The number to be converted.
+   * @param integer The number to be converted.
    * @return The converted number.
    */
-  private static String toWordBase(int number) {
+  private static String toWordBase(int integer) {
     int min = 0;
-    int max = 99;
-    if (number < min || number > max)
+    int max = IntegerToWordsConstants.BASE_MAP.size();
+    if (integer < min || integer > max) {
       throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
-
-    final Map<Integer, String> base = new HashMap<>();
-    base.put(0, "");
-    base.put(1, "one");
-    base.put(2, "two");
-    base.put(3, "three");
-    base.put(4, "four");
-    base.put(5, "five");
-    base.put(6, "six");
-    base.put(7, "seven");
-    base.put(8, "eight");
-    base.put(9, "nine");
-    base.put(10, "ten");
-    base.put(11, "eleven");
-    base.put(12, "twelve");
-    base.put(13, "thirteen");
-    base.put(14, "fourteen");
-    base.put(15, "fifteen");
-    base.put(16, "sixteen");
-    base.put(17, "seventeen");
-    base.put(18, "eighteen");
-    base.put(19, "nineteen");
-    base.put(20, "twenty");
-    base.put(30, "thirty");
-    base.put(40, "forty");
-    base.put(50, "fifty");
-    base.put(60, "sixty");
-    base.put(70, "seventy");
-    base.put(80, "eighty");
-    base.put(90, "ninety");
-
-    return base.get(number);
+    }
+    return IntegerToWordsConstants.BASE_MAP.get(integer);
   }
 
   /**
    * Converts words to string place.
-   * @param number The number to be converted.
+   * @param integer The number to be converted.
    * @return The converted number.
    */
-  private static String toWordPlace(int number) {
+  private static String toWordPlace(int integer) {
     int min = 0;
-    int max = 11;
-    if (number < min || number > max)
+    int max = IntegerToWordsConstants.PLACE_MAP.size();
+    if (integer < min || integer > max) {
       throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
-
-    final Map<Integer, String> place = new HashMap<>();
-    place.put(0, "");
-    place.put(1, "thousand");
-    place.put(2, "million");
-    place.put(3, "billion");
-    place.put(4, "trillion");
-    place.put(5, "quadrillion");
-    place.put(6, "quintillion");
-    place.put(7, "sextillion");
-    place.put(8, "septillion");
-    place.put(9, "octillion");
-    place.put(10, "nonillion");
-    place.put(11, "decillion");
-
-    return place.get(number);
+    }
+    return IntegerToWordsConstants.PLACE_MAP.get(integer);
   }
 
   /**
