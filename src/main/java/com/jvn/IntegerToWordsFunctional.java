@@ -91,7 +91,7 @@ public class IntegerToWordsFunctional {
     if (number < min || number > max)
       throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
 
-    Map<Integer, String> base = new HashMap<>();
+    final Map<Integer, String> base = new HashMap<>();
     base.put(0, "");
     base.put(1, "one");
     base.put(2, "two");
@@ -131,11 +131,11 @@ public class IntegerToWordsFunctional {
    */
   private static String toWordPlace(int number) {
     int min = 0;
-    int max = 9;
+    int max = 11;
     if (number < min || number > max)
       throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
 
-    Map<Integer, String> place = new HashMap<>();
+    final Map<Integer, String> place = new HashMap<>();
     place.put(0, "");
     place.put(1, "thousand");
     place.put(2, "million");
@@ -146,6 +146,8 @@ public class IntegerToWordsFunctional {
     place.put(7, "sextillion");
     place.put(8, "septillion");
     place.put(9, "octillion");
+    place.put(10, "nonillion");
+    place.put(11, "decillion");
 
     return place.get(number);
   }

@@ -69,7 +69,47 @@ public class IntegerToWordsFunctional_UnitTest {
         {10000000, "ten million"},
         {100000000, "one hundred million"},
         {1000000000, "one billion"},
-        {new BigInteger("10000000000"), "ten billion"}
+        {new BigInteger("10000000000"), "ten billion"},
+        {new BigInteger("100000000000"), "one hundred billion"},
+        {new BigInteger("1000000000000"), "one trillion"},
+        {new BigInteger("10000000000000"), "ten trillion"},
+        {new BigInteger("100000000000000"), "one hundred trillion"},
+        {new BigInteger("1000000000000000"), "one quadrillion"},
+        {new BigInteger("10000000000000000"), "ten quadrillion"},
+        {new BigInteger("100000000000000000"), "one hundred quadrillion"},
+        {new BigInteger("1000000000000000000"), "one quintillion"},
+        {new BigInteger("10000000000000000000"), "ten quintillion"},
+        {new BigInteger("100000000000000000000"), "one hundred quintillion"},
+        {new BigInteger("1000000000000000000000"), "one sextillion"},
+        {new BigInteger("10000000000000000000000"), "ten sextillion"},
+        {new BigInteger("100000000000000000000000"), "one hundred sextillion"},
+        {new BigInteger("1000000000000000000000000"), "one septillion"},
+        {new BigInteger("10000000000000000000000000"), "ten septillion"},
+        {new BigInteger("100000000000000000000000000"), "one hundred septillion"},
+        {new BigInteger("1000000000000000000000000000"), "one octillion"},
+        {new BigInteger("10000000000000000000000000000"), "ten octillion"},
+        {new BigInteger("100000000000000000000000000000"), "one hundred octillion"},
+        {new BigInteger("1000000000000000000000000000000"), "one nonillion"},
+        {new BigInteger("10000000000000000000000000000000"), "ten nonillion"},
+        {new BigInteger("100000000000000000000000000000000"), "one hundred nonillion"},
+        {new BigInteger("1000000000000000000000000000000000"), "one decillion"},
+        {new BigInteger("10000000000000000000000000000000000"), "ten decillion"},
+        {new BigInteger("100000000000000000000000000000000000"), "one hundred decillion"},
+        {new BigInteger("123456789123456789123456789123456789"),
+            ""
+                + "one hundred twenty three decillion "
+                + "four hundred fifty six nonillion "
+                + "seven hundred eighty nine octillion "
+                + "one hundred twenty three septillion "
+                + "four hundred fifty six sextillion "
+                + "seven hundred eighty nine quintillion "
+                + "one hundred twenty three quadrillion "
+                + "four hundred fifty six trillion "
+                + "seven hundred eighty nine billion "
+                + "one hundred twenty three million "
+                + "four hundred fifty six thousand "
+                + "seven hundred eighty nine"
+        },
     };
   }
 
