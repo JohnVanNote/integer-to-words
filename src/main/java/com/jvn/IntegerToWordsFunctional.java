@@ -90,11 +90,6 @@ public class IntegerToWordsFunctional {
    * @return The converted number.
    */
   private static String toWordBase(int integer) {
-    int min = 0;
-    int max = IntegerToWordsConstants.BASE_MAP.size();
-    if (integer < min || integer > max) {
-      throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
-    }
     return IntegerToWordsConstants.BASE_MAP.get(integer);
   }
 
@@ -104,11 +99,6 @@ public class IntegerToWordsFunctional {
    * @return The converted number.
    */
   private static String toWordPlace(int integer) {
-    int min = 0;
-    int max = IntegerToWordsConstants.PLACE_MAP.size();
-    if (integer < min || integer > max) {
-      throw new IllegalArgumentException(String.format("Input argument number must be in range [%d, %d].", min, max));
-    }
     return IntegerToWordsConstants.PLACE_MAP.get(integer);
   }
 
