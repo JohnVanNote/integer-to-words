@@ -22,4 +22,8 @@ public class IntegerToWordsObjectOriented {
     this.integer = integer;
   }
 
+  public String toWords() {
+    return IntegerToWordsFunctional.toWords(integer);
+  }
+
 }
